@@ -7,10 +7,10 @@ Gem::Specification.new do |spec|
   spec.name          = "cine_io"
   spec.version       = CineIo::VERSION
   spec.authors       = ["cine.io"]
-  spec.email         = ["support@cine.io"]
+  spec.email         = ["engineering@cine.io"]
   spec.description   = %q{cine.io is an api driven platform for creating and publish live streams. The provides cine.io functionality using your given public and secret keys.}
   spec.summary       = %q{The official cine.io ruby gem}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/cine-io/cineio-ruby"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
