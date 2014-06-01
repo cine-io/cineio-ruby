@@ -1,11 +1,7 @@
-class CineIo::ProjectsHandler
-
-  def initialize(client)
-    @client = client
-  end
+class CineIo::ProjectsHandler < CineIo::ResourceHandler
 
   def get
-    CineIo::Project.new @client.get "/project"
+    CineIo::Project.new get_resource("/project")
   end
 
 end

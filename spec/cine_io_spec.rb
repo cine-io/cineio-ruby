@@ -8,7 +8,7 @@ describe CineIo do
     expect(subject.config).to eq(publicKey: 'My public key', secretKey: 'My secret key')
   end
   describe '#projects' do
-    subject {client.projects}
+    subject {client.project}
     it { should be_a(CineIo::ProjectsHandler) }
   end
 

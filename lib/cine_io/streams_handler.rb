@@ -1,15 +1,11 @@
-class CineIo::StreamsHandler
-
-  def initialize(client)
-    @client = client
-  end
+class CineIo::StreamsHandler < CineIo::ResourceHandler
 
   def get(stream_id)
-    CineIo::Stream.new @client.get("/stream", id: stream_id)
+    CineIo::Stream.new get_resource("/stream", id: stream_id)
   end
 
   def create
-    CineIo::Stream.new @client.post("/stream")
+    CineIo::Stream.new post_resource("/stream")
   end
 
 end

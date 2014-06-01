@@ -7,27 +7,39 @@ describe CineIo::StreamsHandler do
   subject { described_class.new(client) }
 
   describe '#get' do
-    it "returns a project" do
+    it "returns a stream" do
       VCR.use_cassette('get_stream') do
-        project = subject.get("53718cef450ff80200f81856")
-        expect(project).to be_a(CineIo::Stream)
-        expect(project.id).to eq("53718cef450ff80200f81856")
-        expect(project.password).to eq("THEPASSWORD")
-        expect(project.play.keys.sort).to eq(['hls', 'rtmp'])
-        expect(project.publish.keys.sort).to eq(['stream', 'url'])
+        stream = subject.get("53718cef450ff80200f81856")
+        expect(stream).to be_a(CineIo::Stream)
+        expect(stream.id).to eq("53718cef450ff80200f81856")
+        expect(stream.password).to eq("THEPASSWORD")
+        expect(stream.play.keys.sort).to eq(['hls', 'rtmp'])
+        expect(stream.publish.keys.sort).to eq(['stream', 'url'])
+      end
+    end
+
+    it 'can throw an error on api exception' do
+      VCR.use_cassette('get_stream_error') do
+        expect {subject.get("NOT_AN_ID")}.to raise_error(CineIo::ApiError, "An unknown error has occured.")
       end
     end
   end
 
   describe '#create' do
-    it "returns a project" do
+    it "returns a stream" do
       VCR.use_cassette('create_stream') do
-        project = subject.create
-        expect(project).to be_a(CineIo::Stream)
-        expect(project.id).to eq("537b7f48bc03be080085a389")
-        expect(project.password).to eq("PASSWORD")
-        expect(project.play.keys.sort).to eq(['hls', 'rtmp'])
-        expect(project.publish.keys.sort).to eq(['stream', 'url'])
+        stream = subject.create
+        expect(stream).to be_a(CineIo::Stream)
+        expect(stream.id).to eq("537b7f48bc03be080085a389")
+        expect(stream.password).to eq("PASSWORD")
+        expect(stream.play.keys.sort).to eq(['hls', 'rtmp'])
+        expect(stream.publish.keys.sort).to eq(['stream', 'url'])
+      end
+    end
+
+    it 'can throw an error on api exception' do
+      VCR.use_cassette('create_stream_error') do
+        expect {subject.create}.to raise_error(CineIo::ApiError, "An unknown error has occured.")
       end
     end
   end

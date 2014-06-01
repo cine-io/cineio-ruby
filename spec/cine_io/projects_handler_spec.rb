@@ -14,6 +14,12 @@ describe CineIo::ProjectsHandler do
         expect(project.name).to eq("THE PROJECT")
       end
     end
+
+    it 'can throw an error on api exception' do
+      VCR.use_cassette('get_project_error') do
+        expect {subject.get}.to raise_error(CineIo::ApiError, "An unknown error has occured.")
+      end
+    end
   end
 
 end

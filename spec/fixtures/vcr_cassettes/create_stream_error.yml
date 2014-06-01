@@ -1,0 +1,41 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.cine.io/api/1/-/stream
+    body:
+      encoding: US-ASCII
+      string: secretKey=MY+SECRET
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Sun, 01 Jun 2014 22:38:18 GMT
+      Set-Cookie:
+      - connect.sid=s%3A07r5JjDM0gDGDWehsGcwyqIA.us1w%2FA7eZ%2FOYhofA5EUokf8UDi8JvX1KX1UW0tpB3Q0;
+        Path=/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - Express
+      Content-Length:
+      - '29'
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: An unknown error has occured.
+    http_version:
+  recorded_at: Sun, 01 Jun 2014 22:38:18 GMT
+recorded_with: VCR 2.3.0
