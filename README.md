@@ -1,4 +1,4 @@
-# CineIo
+# cine.io ruby gem
 
 [![Build Status](https://travis-ci.org/cine-io/cineio-ruby.svg?branch=master)](https://travis-ci.org/cine-io/cineio-ruby)
 
