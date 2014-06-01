@@ -43,14 +43,14 @@ project = client.project.get
 To get all your streams:
 
 ```ruby
-stream = client.streams.index
+streams = client.streams.index
 # => [CineIo::Stream, …]
 ```
 
 To get a specific stream:
 
 ```ruby
-streams = client.streams.get('STREAM_ID')
+stream = client.streams.get('STREAM_ID')
 # => CineIo::Stream
 ```
 
