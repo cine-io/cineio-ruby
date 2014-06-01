@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 describe CineIo do
-  let(:client) { CineIo::Client.new(publicKey: 'My public key', secretKey: 'My secret key') }
+  let(:client) { CineIo::Client.new(:publicKey => 'My public key', :secretKey => 'My secret key') }
   subject { client }
 
   it 'takes a public and secret key' do
-    expect(subject.config).to eq(publicKey: 'My public key', secretKey: 'My secret key')
+    expect(subject.config).to eq(:publicKey => 'My public key', :secretKey => 'My secret key')
   end
   describe '#projects' do
     subject {client.project}

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe CineIo::StreamsHandler do
 
-  let(:client) { CineIo::Client.new(secretKey: "MY SECRET", publicKey: "MY PUBLIC") }
+  let(:client) { CineIo::Client.new(:secretKey => "MY SECRET", :publicKey => "MY PUBLIC") }
 
   subject { described_class.new(client) }
 
