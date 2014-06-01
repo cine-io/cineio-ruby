@@ -1,0 +1,41 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.cine.io/api/1/-/stream
+    body:
+      encoding: US-ASCII
+      string: secretKey=MY SECRET
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 01 Jun 2014 07:53:39 GMT
+      Set-Cookie:
+      - connect.sid=s%3AbDx8VzPxTkATiEsSARSIEEcA.ZmA%2BpTvFJvSE7rE%2BpzP9a2iCRQOeLHhId2RHmSJLN1Y;
+        Path=/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - Express
+      Content-Length:
+      - '396'
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '{"id":"537b7f48bc03be080085a389","name":"cine1","play":{"hls":"http://hls.cine.io/cines/cine1/cine1.m3u8","rtmp":"rtmp://fml.cine.io/20C45E/cines/cine1?adbe-live-event=cine1"},"publish":{"url":"rtmp://stream.lax.cine.io/20C45E/cines","stream":"cine1?PASSWORD&amp;adbe-live-event=cine1"},"password":"PASSWORD","expiration":"2034-05-20T00:00:00.000Z","assignedAt":"2014-06-01T07:53:38.613Z"}'
+    http_version:
+  recorded_at: Sun, 01 Jun 2014 07:53:39 GMT
+recorded_with: VCR 2.3.0

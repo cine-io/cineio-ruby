@@ -1,0 +1,41 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.cine.io/api/1/-/project?secretKey=MY%20SECRET
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 01 Jun 2014 07:27:53 GMT
+      Etag:
+      - ! '"-585713471"'
+      Set-Cookie:
+      - connect.sid=s%3ACxr5WVK6KEkFqdcFxxYTSTJ7.%2F7TTnVJK4mHsI%2FAIiKiebpUq5y5d5Fz8MmK7Azhad%2Bg;
+        Path=/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - Express
+      Content-Length:
+      - '217'
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '{"id":"THE ID","publicKey":"MY PUBLIC","secretKey":"MY SECRET","name":"THE PROJECT", "streamsCount":0,"updatedAt":"2014-05-29T01:21:20.186Z"}'
+    http_version:
+  recorded_at: Sun, 01 Jun 2014 07:27:53 GMT
+recorded_with: VCR 2.3.0
