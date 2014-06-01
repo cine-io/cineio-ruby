@@ -1,6 +1,6 @@
 # CineIo
 
-TODO: Write a gem description
+The ruby gem for [cine.io](cine.io).
 
 ## Installation
 
@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Coming soon...
 
 ## Contributing
 
