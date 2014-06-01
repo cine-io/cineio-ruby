@@ -1,5 +1,7 @@
 # CineIo
 
+[![Build Status](https://travis-ci.org/cine-io/cineio-ruby.svg?branch=master)](https://travis-ci.org/cine-io/cineio-ruby)
+
 The ruby gem for [cine.io](cine.io).
 
 ## Installation
