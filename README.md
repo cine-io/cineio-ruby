@@ -18,7 +18,46 @@ Or install it yourself as:
 
 ## Usage
 
-Coming soon...
+### Initialization
+
+```ruby
+require('cine_io')
+client = CineIo::Client.new(secretKey: 'YOUR_SECRET_KEY')
+```
+
+### Methods
+
+#### Projects
+
+To get data about your project:
+
+```ruby
+project = client.project.get
+# => CineIo::Project
+```
+
+#### Streams
+
+To get all your streams:
+
+```ruby
+stream = client.streams.index
+# => [CineIo::Stream, …]
+```
+
+To get a specific stream:
+
+```ruby
+streams = client.streams.get('STREAM_ID')
+# => CineIo::Stream
+```
+
+To create a new stream:
+
+```ruby
+stream = client.streams.create
+# => CineIo::Stream
+```
 
 ## Contributing
 
