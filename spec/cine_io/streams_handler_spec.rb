@@ -25,6 +25,22 @@ describe CineIo::StreamsHandler do
     end
   end
 
+  describe '#fmle_profile' do
+    it "returns a fmle profile" do
+      VCR.use_cassette('get_fmle_profile') do
+        profile = subject.fmle_profile("537bee46bc03be080085a38a")
+        expect(profile).to be_a(String)
+        expect(profile).to include("flashmedialiveencoder_profile")
+      end
+    end
+
+    it 'can throw an error on api exception' do
+      VCR.use_cassette('get_fmle_profile_error', record: :once) do
+        expect {subject.get("NOT_AN_ID")}.to raise_error(CineIo::ApiError, "An unknown error has occured.")
+      end
+    end
+  end
+
   describe '#streams' do
     it "returns the streams" do
       VCR.use_cassette('get_streams') do

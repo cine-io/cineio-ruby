@@ -61,6 +61,13 @@ stream = client.streams.create
 # => CineIo::Stream
 ```
 
+To fetch the [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) profile for a stream:
+
+```ruby
+stream = client.streams.fmle_profile('STREAM_ID')
+# => String of profile contents
+```
+
 ## Contributing
 
 1. Fork it

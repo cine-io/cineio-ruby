@@ -8,6 +8,10 @@ class CineIo::StreamsHandler < CineIo::ResourceHandler
     CineIo::Stream.new get_resource("/stream", id: stream_id)
   end
 
+  def fmle_profile(stream_id)
+    get_resource("/stream", id: stream_id, fmleProfile: true).fetch('content')
+  end
+
   def create
     CineIo::Stream.new post_resource("/stream")
   end
