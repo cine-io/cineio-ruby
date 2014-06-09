@@ -45,7 +45,7 @@ describe CineIo::StreamsHandler do
     it "returns the streams" do
       VCR.use_cassette('get_streams') do
         streams = subject.index
-        expect(streams).to have(1).item
+        expect(streams.length).to eq(1)
         stream = streams.first
         expect(stream).to be_a(CineIo::Stream)
         expect(stream.id).to eq("53718cef450ff80200f81856")
