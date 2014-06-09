@@ -38,6 +38,13 @@ project = client.project.get
 # => CineIo::Project
 ```
 
+To delete your project:
+
+```ruby
+deleted_date = client.project.destroy
+# => Date String
+```
+
 #### Streams
 
 To get all your streams:
@@ -52,6 +59,13 @@ To get a specific stream:
 ```ruby
 stream = client.streams.get('STREAM_ID')
 # => CineIo::Stream
+```
+
+To delete a specific stream:
+
+```ruby
+deleted_date = client.streams.destroy('STREAM_ID')
+# => Date String
 ```
 
 To create a new stream:
