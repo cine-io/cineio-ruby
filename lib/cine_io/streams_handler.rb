@@ -16,4 +16,8 @@ class CineIo::StreamsHandler < CineIo::ResourceHandler
     CineIo::Stream.new post_resource("/stream")
   end
 
+  def delete(stream_id)
+    delete_resource("/stream", id: stream_id).fetch('deletedAt')
+  end
+
 end

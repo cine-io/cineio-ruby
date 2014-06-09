@@ -22,4 +22,19 @@ describe CineIo::ProjectsHandler do
     end
   end
 
+  describe '#delete' do
+    it "returns a date" do
+      VCR.use_cassette('delete_project') do
+        deleted_date = subject.delete
+        expect(deleted_date).not_to be_nil
+      end
+    end
+
+    it 'can throw an error on api exception' do
+      VCR.use_cassette('delete_project_error') do
+        expect {subject.delete}.to raise_error(CineIo::ApiError, "An unknown error has occured.")
+      end
+    end
+  end
+
 end

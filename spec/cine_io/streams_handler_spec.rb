@@ -81,4 +81,19 @@ describe CineIo::StreamsHandler do
     end
   end
 
+  describe '#delete' do
+    it "returns a date" do
+      VCR.use_cassette('delete_stream') do
+        deleted_date = subject.delete('538f79dddfd24d0a00647085')
+        expect(deleted_date).not_to be_nil
+      end
+    end
+
+    it 'can throw an error on api exception' do
+      VCR.use_cassette('delete_stream_error') do
+        expect {subject.delete('NOT_A_STREAM')}.to raise_error(CineIo::ApiError, "An unknown error has occured.")
+      end
+    end
+  end
+
 end

@@ -1,0 +1,41 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://www.cine.io/api/1/-/stream
+    body:
+      encoding: US-ASCII
+      string: secretKey=MY+SECRET&id=538f79dddfd24d0a00647085
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 09 Jun 2014 20:11:20 GMT
+      Set-Cookie:
+      - connect.sid=s%3Ai7nlBuDnKvrZJHC7GhJAcos6.BabWYwU0yuQYyqe9oely9%2FrDxtWc1dlcl2qAt3zRdi8;
+        Path=/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - Express
+      Content-Length:
+      - '111'
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '{"id":"538f79dddfd24d0a00647085","updatedAt":"2014-06-09T20:11:20.610Z","deletedAt":"2014-06-09T20:11:20.608Z"}'
+    http_version:
+  recorded_at: Mon, 09 Jun 2014 20:11:20 GMT
+recorded_with: VCR 2.9.2
