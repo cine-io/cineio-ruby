@@ -38,6 +38,8 @@ project = client.project.get
 # => CineIo::Project
 ```
 
+To update your project:
+
 ```ruby
 # params:
 #   name: 'a helpful project name'
