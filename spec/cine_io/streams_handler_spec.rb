@@ -56,7 +56,7 @@ describe CineIo::StreamsHandler do
     end
 
     it 'can throw an error on api exception' do
-      VCR.use_cassette('get_streams_error', record: :once) do
+      VCR.use_cassette('get_streams_error') do
         expect {subject.index}.to raise_error(CineIo::ApiError, "An unknown error has occured.")
       end
     end
@@ -68,6 +68,18 @@ describe CineIo::StreamsHandler do
         stream = subject.create
         expect(stream).to be_a(CineIo::Stream)
         expect(stream.id).to eq("537b7f48bc03be080085a389")
+        expect(stream.password).to eq("PASSWORD")
+        expect(stream.play.keys.sort).to eq(['hls', 'rtmp'])
+        expect(stream.publish.keys.sort).to eq(['stream', 'url'])
+      end
+    end
+
+    it "can take a name parameter" do
+      VCR.use_cassette('create_stream_with_name') do
+        stream = subject.create(name: 'new stream')
+        expect(stream).to be_a(CineIo::Stream)
+        expect(stream.id).to eq("537b7f48bc03be080085a389")
+        expect(stream.name).to eq("new stream")
         expect(stream.password).to eq("PASSWORD")
         expect(stream.play.keys.sort).to eq(['hls', 'rtmp'])
         expect(stream.publish.keys.sort).to eq(['stream', 'url'])
@@ -92,6 +104,22 @@ describe CineIo::StreamsHandler do
     it 'can throw an error on api exception' do
       VCR.use_cassette('delete_stream_error') do
         expect {subject.delete('NOT_A_STREAM')}.to raise_error(CineIo::ApiError, "An unknown error has occured.")
+      end
+    end
+  end
+
+  describe '#update' do
+    it "updates the name" do
+      VCR.use_cassette('update_stream') do
+        stream = subject.update('53718cef450ff80200f81856', name: 'homepage stream')
+        expect(stream.id).to eq('53718cef450ff80200f81856')
+        expect(stream.name).to eq('homepage stream')
+      end
+    end
+
+    it 'can throw an error on api exception' do
+      VCR.use_cassette('update_stream_error') do
+        expect {subject.update('NOT_A_STREAM', name: '')}.to raise_error(CineIo::ApiError, "An unknown error has occured.")
       end
     end
   end

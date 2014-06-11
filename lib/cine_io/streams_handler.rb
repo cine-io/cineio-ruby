@@ -12,8 +12,16 @@ class CineIo::StreamsHandler < CineIo::ResourceHandler
     get_resource("/stream", id: stream_id, fmleProfile: true).fetch('content')
   end
 
-  def create
-    CineIo::Stream.new post_resource("/stream")
+  # params
+  #  name: 'some stream name'
+  def create(params={})
+    CineIo::Stream.new post_resource("/stream", params)
+  end
+
+  # params:
+  #  name: some project name
+  def update(stream_id, params)
+    CineIo::Stream.new update_resource("/stream", {id: stream_id}.merge(params))
   end
 
   def delete(stream_id)

@@ -1,11 +1,11 @@
 ---
 http_interactions:
 - request:
-    method: delete
+    method: put
     uri: https://www.cine.io/api/1/-/project
     body:
       encoding: US-ASCII
-      string: secretKey=MY+SECRET
+      string: secretKey=MY+SECRET&name=new+project+name
     headers:
       Accept:
       - ! '*/*'
@@ -21,21 +21,22 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 09 Jun 2014 20:11:20 GMT
+      - Wed, 11 Jun 2014 20:14:16 GMT
       Set-Cookie:
-      - connect.sid=s%3Ai7nlBuDnKvrZJHC7GhJAcos6.BabWYwU0yuQYyqe9oely9%2FrDxtWc1dlcl2qAt3zRdi8;
+      - connect.sid=s%3AlXanIRF3rJUdSVF9WJQYiAIE.yBozlxl0BPpLdC%2FqfJoVXG2%2FW5x8SSMg%2BCNd7Wv6xIQ;
         Path=/; HttpOnly
       Vary:
       - Accept-Encoding
       X-Powered-By:
       - Express
       Content-Length:
-      - '111'
+      - '209'
       Connection:
       - keep-alive
     body:
       encoding: US-ASCII
-      string: ! '{"id":"538f79dddfd24d0a00647085","updatedAt":"2014-06-09T20:11:20.610Z","deletedAt":"2014-06-09T20:11:20.608Z"}'
+      string: ! '{"id":"53868bd8a3f20d0800a4eb38","publicKey":"MY PUBLIC","secretKey":"MY SECRET","name":"new
+        project name","streamsCount":2,"updatedAt":"2014-06-11T20:14:16.655Z"}'
     http_version:
-  recorded_at: Mon, 09 Jun 2014 20:11:20 GMT
+  recorded_at: Wed, 11 Jun 2014 20:14:16 GMT
 recorded_with: VCR 2.9.2

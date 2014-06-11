@@ -37,4 +37,19 @@ describe CineIo::ProjectsHandler do
     end
   end
 
+  describe '#update' do
+    it "updates the project" do
+      VCR.use_cassette('update_project') do
+        new_project_details = subject.update(name: 'new project name')
+        expect(new_project_details.name).to eq("new project name")
+      end
+    end
+
+    it 'can throw an error on api exception' do
+      VCR.use_cassette('update_project_error') do
+        expect {subject.update(name: '')}.to raise_error(CineIo::ApiError, "An unknown error has occured.")
+      end
+    end
+  end
+
 end
