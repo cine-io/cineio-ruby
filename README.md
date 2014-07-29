@@ -95,6 +95,13 @@ stream = client.streams.create(params)
 # => CineIo::Stream
 ```
 
+To get all the recordings of stream:
+
+```ruby
+recordings = client.streams.recordings('STREAM_ID')
+# => [CineIo::StreamRecording, …]
+```
+
 To fetch the [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) profile for a stream:
 
 ```ruby

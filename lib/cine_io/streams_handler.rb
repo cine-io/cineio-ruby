@@ -12,6 +12,10 @@ class CineIo::StreamsHandler < CineIo::ResourceHandler
     get_resource("/stream", id: stream_id, fmleProfile: true).fetch('content')
   end
 
+  def recordings(stream_id)
+    get_resource("/stream/recordings", id: stream_id).map(&CineIo::StreamRecording.method(:new))
+  end
+
   # params
   #  name: 'some stream name'
   def create(params={})

@@ -1,0 +1,41 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.cine.io/api/1/-/stream/recordings?id=53718cef450ff80200f81856&secretKey=MY%20SECRET
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 01 Jun 2014 23:00:30 GMT
+      Etag:
+      - ! '"141729763"'
+      Set-Cookie:
+      - connect.sid=s%3AmCygPst4k0FvNgN7v0iUWSzA.9SXtKjamHPmkxX%2F1xf6t87xWvgH1fGBmZoIwN7Rizck;
+        Path=/; HttpOnly
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - Express
+      Content-Length:
+      - '381'
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '[{"name": "recordingName", "url": "recordingUrl", "date": "recording Date", "size": 12345}, {"name": "recordingName2", "url": "recordingUrl2", "date": "recording Date2", "size": 54321}]'
+    http_version:
+  recorded_at: Sun, 01 Jun 2014 23:00:30 GMT
+recorded_with: VCR 2.3.0

@@ -25,6 +25,28 @@ describe CineIo::StreamsHandler do
     end
   end
 
+  describe '#recordings' do
+    it "returns a stream" do
+      VCR.use_cassette('get_stream_recordings') do
+        recordings = subject.recordings("53718cef450ff80200f81856")
+        expect(recordings.length).to eq(2)
+
+        recording = recordings.first
+        expect(recording).to be_a(CineIo::StreamRecording)
+        expect(recording.name).to eq("recordingName")
+        expect(recording.url).to eq("recordingUrl")
+        expect(recording.date).to eq("recording Date")
+        expect(recording.size).to eq(12345)
+      end
+    end
+
+    it 'can throw an error on api exception' do
+      VCR.use_cassette('get_stream_recordings_error') do
+        expect {subject.recordings("NOT_AN_ID")}.to raise_error(CineIo::ApiError, "An unknown error has occured.")
+      end
+    end
+  end
+
   describe '#fmle_profile' do
     it "returns a fmle profile" do
       VCR.use_cassette('get_fmle_profile') do

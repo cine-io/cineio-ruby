@@ -1,6 +1,6 @@
-class CineIo::Stream
+class CineIo::StreamRecording
 
-  attr_reader :id, :name, :play, :publish, :password, :expiration, :assignedAt
+  attr_reader :name, :url, :size, :date
 
   def initialize(attributes)
     attributes.each do |attribute, value|
