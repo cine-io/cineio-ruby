@@ -92,7 +92,7 @@ To create a new stream:
 ```ruby
 # params (optional):
 #  name (optional): 'a helpful stream name'
-#  record: true|false (default false). Record: true will save recordings of all streaming sessions
+#  record: true|false (default false). record: true will save recordings of all streaming sessions
 stream = client.streams.create(params)
 # => CineIo::Stream
 ```
