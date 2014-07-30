@@ -18,12 +18,14 @@ class CineIo::StreamsHandler < CineIo::ResourceHandler
 
   # params
   #  name: 'some stream name'
+  #  record: true|false (default false)
   def create(params={})
     CineIo::Stream.new post_resource("/stream", params)
   end
 
   # params:
   #  name: some project name
+  #  record: true|false (updating a stream from true to false will delete old stream recordings)
   def update(stream_id, params)
     CineIo::Stream.new update_resource("/stream", {id: stream_id}.merge(params))
   end

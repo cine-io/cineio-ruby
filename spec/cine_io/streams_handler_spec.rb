@@ -51,7 +51,7 @@ describe CineIo::StreamsHandler do
     end
   end
 
-  describe '#streams' do
+  describe '#index' do
     it "returns the streams" do
       VCR.use_cassette('get_streams') do
         streams = subject.index
@@ -78,7 +78,9 @@ describe CineIo::StreamsHandler do
         stream = subject.create
         expect(stream).to be_a(CineIo::Stream)
         expect(stream.id).to eq("537b7f48bc03be080085a389")
+        expect(stream.name).to eq(nil)
         expect(stream.password).to eq("PASSWORD")
+        expect(stream.record).to eq(false)
         expect(stream.play.keys.sort).to eq(['hls', 'rtmp'])
         expect(stream.publish.keys.sort).to eq(['stream', 'url'])
       end
@@ -91,6 +93,20 @@ describe CineIo::StreamsHandler do
         expect(stream.id).to eq("537b7f48bc03be080085a389")
         expect(stream.name).to eq("new stream")
         expect(stream.password).to eq("PASSWORD")
+        expect(stream.record).to eq(false)
+        expect(stream.play.keys.sort).to eq(['hls', 'rtmp'])
+        expect(stream.publish.keys.sort).to eq(['stream', 'url'])
+      end
+    end
+
+    it "can take a record parameter" do
+      VCR.use_cassette('create_stream_with_record') do
+        stream = subject.create(record: true)
+        expect(stream).to be_a(CineIo::Stream)
+        expect(stream.id).to eq("537b7f48bc03be080085a389")
+        expect(stream.name).to eq(nil)
+        expect(stream.password).to eq("PASSWORD")
+        expect(stream.record).to eq(true)
         expect(stream.play.keys.sort).to eq(['hls', 'rtmp'])
         expect(stream.publish.keys.sort).to eq(['stream', 'url'])
       end

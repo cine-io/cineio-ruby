@@ -35,7 +35,7 @@ http_interactions:
       - keep-alive
     body:
       encoding: US-ASCII
-      string: ! '{"id":"537b7f48bc03be080085a389","name":"new stream","play":{"hls":"http://hls.cine.io/cines/cine1/cine1.m3u8","rtmp":"rtmp://fml.cine.io/20C45E/cines/cine1?adbe-live-event=cine1"},"publish":{"url":"rtmp://stream.lax.cine.io/20C45E/cines","stream":"cine1?PASSWORD&amp;adbe-live-event=cine1"},"password":"PASSWORD","expiration":"2034-05-20T00:00:00.000Z","assignedAt":"2014-06-01T07:53:38.613Z"}'
+      string: ! '{"id":"537b7f48bc03be080085a389","name":"new stream","play":{"hls":"http://hls.cine.io/cines/cine1/cine1.m3u8","rtmp":"rtmp://fml.cine.io/20C45E/cines/cine1?adbe-live-event=cine1"},"publish":{"url":"rtmp://stream.lax.cine.io/20C45E/cines","stream":"cine1?PASSWORD&amp;adbe-live-event=cine1"},"password":"PASSWORD","expiration":"2034-05-20T00:00:00.000Z","assignedAt":"2014-06-01T07:53:38.613Z", "record": false}'
     http_version:
   recorded_at: Wed, 11 Jun 2014 20:19:12 GMT
 recorded_with: VCR 2.9.2
