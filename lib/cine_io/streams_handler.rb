@@ -12,8 +12,8 @@ class CineIo::StreamsHandler < CineIo::ResourceHandler
     get_resource("/stream", id: stream_id, fmleProfile: true).fetch('content')
   end
 
-  def recordings(stream_id)
-    get_resource("/stream/recordings", id: stream_id).map(&CineIo::StreamRecording.method(:new))
+  def recordings
+    @streams ||= CineIo::StreamRecordingsHandler.new(@client)
   end
 
   # params

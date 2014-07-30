@@ -26,24 +26,12 @@ describe CineIo::StreamsHandler do
   end
 
   describe '#recordings' do
-    it "returns a stream" do
-      VCR.use_cassette('get_stream_recordings') do
-        recordings = subject.recordings("53718cef450ff80200f81856")
-        expect(recordings.length).to eq(2)
-
-        recording = recordings.first
-        expect(recording).to be_a(CineIo::StreamRecording)
-        expect(recording.name).to eq("recordingName")
-        expect(recording.url).to eq("recordingUrl")
-        expect(recording.date).to eq("recording Date")
-        expect(recording.size).to eq(12345)
-      end
+    it 'returns an instance of a StreamRecordingsHandler' do
+      expect(subject.recordings).to be_a(CineIo::StreamRecordingsHandler)
     end
 
-    it 'can throw an error on api exception' do
-      VCR.use_cassette('get_stream_recordings_error') do
-        expect {subject.recordings("NOT_AN_ID")}.to raise_error(CineIo::ApiError, "An unknown error has occured.")
-      end
+    it 'passes along the client to the StreamRecordingsHandler' do
+      expect(subject.recordings.instance_variable_get(:@client)).to eq(client)
     end
   end
 

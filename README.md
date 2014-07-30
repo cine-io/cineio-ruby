@@ -98,8 +98,15 @@ stream = client.streams.create(params)
 To get all the recordings of stream:
 
 ```ruby
-recordings = client.streams.recordings('STREAM_ID')
+recordings = client.streams.recordings.index('STREAM_ID')
 # => [CineIo::StreamRecording, …]
+```
+
+To delete a the recordings of stream:
+
+```ruby
+recordings = client.streams.recordings.delete('STREAM_ID', 'recordingName')
+# => Date String
 ```
 
 To fetch the [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) profile for a stream:
