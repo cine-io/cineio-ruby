@@ -75,7 +75,7 @@ To update a specific stream:
 ```ruby
 # params:
 #   name: 'a helpful stream name'
-#  record: true|false (updating a stream from true to false will delete old stream recordings)
+#  record: true|false (updating a stream from true to false will not delete old stream recordings)
 stream = client.streams.update('STREAM_ID', params)
 # => CineIo::Stream
 ```
