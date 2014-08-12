@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/cine-io/cineio-ruby.svg?branch=master)](https://travis-ci.org/cine-io/cineio-ruby)
 
-The [ruby gem](https://rubygems.org/gems/cine_io) for [cine.io](https://cine.io).
+The [ruby gem](https://rubygems.org/gems/cine_io) for [cine.io](https://www.cine.io).
 
 ## Installation
 
