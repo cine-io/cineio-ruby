@@ -25,11 +25,20 @@ Or install it yourself as:
 ```ruby
 require('cine_io')
 client = CineIo::Client.new(secretKey: 'YOUR_SECRET_KEY')
+client = CineIo::Client.new(secretKey: 'YOUR_SECRET_KEY', masterKey: 'YOUR_MASTER_KEY')
 ```
 
 ### Methods
 
 #### Projects
+
+To get data about your project:
+
+```ruby
+project = client.projects.index
+# => [CineIo::Project, …]
+```
+#### Project
 
 To get data about your project:
 

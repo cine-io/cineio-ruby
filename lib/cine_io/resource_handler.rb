@@ -21,6 +21,19 @@ class CineIo::ResourceHandler
     JSON.parse(response.body)
   end
 
+  def get_resource_with_master_key(path, params={})
+    uri = URI.parse("#{CineIo::BASE_URL}#{path}")
+    uri.query = URI.encode_www_form({:masterKey => @client.config.fetch(:masterKey)}.merge(params))
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = (uri.scheme == "https")
+
+    request = Net::HTTP::Get.new(uri.request_uri, {"User-Agent" => USER_AGENT})
+    response = http.request(request)
+
+    raise CineIo::ApiError.new(response.body) unless response.is_a?(Net::HTTPSuccess)
+    JSON.parse(response.body)
+  end
+
   def post_resource(path, params={})
     uri = URI.parse("#{CineIo::BASE_URL}#{path}")
     http = Net::HTTP.new(uri.host, uri.port)

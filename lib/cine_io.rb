@@ -16,8 +16,12 @@ module CineIo
       @config = config
     end
 
-    def project
+    def projects
       @project ||= CineIo::ProjectsHandler.new(self)
+    end
+
+    def project
+      @project ||= CineIo::ProjectHandler.new(self)
     end
 
     def streams

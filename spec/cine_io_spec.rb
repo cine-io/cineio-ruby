@@ -1,15 +1,21 @@
 require 'spec_helper'
 
 describe CineIo do
-  let(:client) { CineIo::Client.new(:publicKey => 'My public key', :secretKey => 'My secret key') }
+  let(:client) { CineIo::Client.new(:publicKey => 'My public key', :secretKey => 'My secret key', :something => 'else') }
   subject { client }
 
-  it 'takes a public and secret key' do
-    expect(subject.config).to eq(:publicKey => 'My public key', :secretKey => 'My secret key')
+  it 'takes a config' do
+    expect(subject.config).to eq(:publicKey => 'My public key', :secretKey => 'My secret key', :something => 'else')
   end
+
   describe '#projects' do
-    subject {client.project}
+    subject {client.projects}
     it { should be_a(CineIo::ProjectsHandler) }
+  end
+
+  describe '#project' do
+    subject {client.project}
+    it { should be_a(CineIo::ProjectHandler) }
   end
 
   describe '#streams' do
