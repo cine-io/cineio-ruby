@@ -32,7 +32,7 @@ client = CineIo::Client.new(secretKey: 'YOUR_SECRET_KEY', masterKey: 'YOUR_MASTE
 
 #### Projects
 
-To get data about your project:
+To get data about your projects:
 
 ```ruby
 project = client.projects.index
