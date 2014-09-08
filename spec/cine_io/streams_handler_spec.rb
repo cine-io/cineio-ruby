@@ -65,6 +65,20 @@ describe CineIo::StreamsHandler do
       end
     end
 
+    it "returns the streams with a name" do
+      VCR.use_cassette('get_streams_with_name') do
+        streams = subject.index(name: 'my name')
+        expect(streams.length).to eq(1)
+        stream = streams.first
+        expect(stream).to be_a(CineIo::Stream)
+        expect(stream.id).to eq("53718cef450ff80200f81856")
+        expect(stream.name).to eq("my name")
+        expect(stream.password).to eq("THEPASSWORD")
+        expect(stream.play.keys.sort).to eq(['hls', 'rtmp'])
+        expect(stream.publish.keys.sort).to eq(['stream', 'url'])
+      end
+    end
+
     it 'can throw an error on api exception' do
       VCR.use_cassette('get_streams_error') do
         expect {subject.index}.to raise_error(CineIo::ApiError, "An unknown error has occured.")

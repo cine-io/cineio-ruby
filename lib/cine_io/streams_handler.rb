@@ -1,7 +1,7 @@
 class CineIo::StreamsHandler < CineIo::ResourceHandler
 
-  def index
-     get_resource("/streams").map(&CineIo::Stream.method(:new))
+  def index(params={})
+     get_resource("/streams", params).map(&CineIo::Stream.method(:new))
   end
 
   def get(stream_id)
