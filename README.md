@@ -69,6 +69,7 @@ To get all your streams:
 
 ```ruby
 streams = client.streams.index
+streams = client.streams.index(name: 'my custom name')
 # => [CineIo::Stream, …]
 ```
 
