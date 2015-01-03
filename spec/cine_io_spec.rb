@@ -23,4 +23,9 @@ describe CineIo do
     it { should be_a(CineIo::StreamsHandler) }
   end
 
+  describe '#peer' do
+    subject {client.peer}
+    it { should be_a(CineIo::Peer) }
+  end
+
 end

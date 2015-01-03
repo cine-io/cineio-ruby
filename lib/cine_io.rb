@@ -28,5 +28,9 @@ module CineIo
       @streams ||= CineIo::StreamsHandler.new(self)
     end
 
+    def peer
+      @peer ||= CineIo::Peer.new(self)
+    end
+
   end
 end
