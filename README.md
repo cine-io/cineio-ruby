@@ -137,7 +137,7 @@ recordings = client.streams.recordings.delete('STREAM_ID', 'recordingName')
 ```ruby
 var identity = "Unique user name to your app"
 response = client.peer.generate_identity_signature(identity)
-// response looks like {signature: "sha1-hash", timestamp: 1420258111, identity: "Unique user name to your app"}
+# response looks like {signature: "sha1-hash", timestamp: 1420258111, identity: "Unique user name to your app"}
 ```
 
 ## Contributing
