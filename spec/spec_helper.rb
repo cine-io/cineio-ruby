@@ -1,3 +1,5 @@
+ENV['TZ'] = 'UTC'
+
 require 'cine_io'
 require 'vcr'
 
