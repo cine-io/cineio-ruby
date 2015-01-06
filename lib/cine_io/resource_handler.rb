@@ -1,3 +1,5 @@
+require('queryparams')
+
 class CineIo::ResourceHandler
 
   protected
@@ -10,7 +12,7 @@ class CineIo::ResourceHandler
 
   def get_resource(path, params={})
     uri = URI.parse("#{CineIo::BASE_URL}#{path}")
-    uri.query = URI.encode_www_form({:secretKey => @client.config.fetch(:secretKey)}.merge(params))
+    uri.query = QueryParams.encode({:secretKey => @client.config.fetch(:secretKey)}.merge(params))
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = (uri.scheme == "https")
 
@@ -23,7 +25,7 @@ class CineIo::ResourceHandler
 
   def get_resource_with_master_key(path, params={})
     uri = URI.parse("#{CineIo::BASE_URL}#{path}")
-    uri.query = URI.encode_www_form({:masterKey => @client.config.fetch(:masterKey)}.merge(params))
+    uri.query = QueryParams.encode({:masterKey => @client.config.fetch(:masterKey)}.merge(params))
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = (uri.scheme == "https")
 

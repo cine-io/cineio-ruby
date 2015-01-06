@@ -32,5 +32,9 @@ module CineIo
       @peer ||= CineIo::Peer.new(self)
     end
 
+    def usage
+      @usage ||= CineIo::UsageHandler.new(self)
+    end
+
   end
 end

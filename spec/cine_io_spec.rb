@@ -28,4 +28,9 @@ describe CineIo do
     it { should be_a(CineIo::Peer) }
   end
 
+  describe '#usage' do
+    subject {client.usage}
+    it { should be_a(CineIo::UsageHandler) }
+  end
+
 end
