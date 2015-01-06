@@ -135,9 +135,33 @@ recordings = client.streams.recordings.delete('STREAM_ID', 'recordingName')
 #### Identity Signature Generation
 
 ```ruby
-var identity = "Unique user name to your app"
+identity = "Unique user name to your app"
 response = client.peer.generate_identity_signature(identity)
 # response looks like {signature: "sha1-hash", timestamp: 1420258111, identity: "Unique user name to your app"}
+```
+
+
+### Usage
+
+Use these api endpoints to fetch the monthly usage for a project or a stream.
+
+#### Project Usage
+
+```ruby
+options = {:month => new Date, :report => ['bandwidth, 'peer']}
+response = client.usage.project(options)
+// response looks like {bandwidth: 12345, storage: 54321, month: "month (ISO 8601 format)", secretKey: "YOUR SECRET KEY"}
+// bandwidth and storage are represented in bytes
+```
+
+#### Stream Usage
+
+```ruby
+id = 'STREAM_ID'
+options = {:month => new Date, :report => ['bandwidth, 'peer']}
+response = client.usage.stream(id, options);
+// response looks like {bandwidth: 12345, storage: 54321, month: "month (ISO 8601 format)", secretKey: "YOUR SECRET KEY", id: "STREAM_ID"}
+// bandwidth and storage are represented in bytes
 ```
 
 ## Contributing
